@@ -1,7 +1,7 @@
 package it.unikey;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * #########################
@@ -25,8 +25,11 @@ public class FamousYoutuber {
      * Questa collezione raccoglie i Subscriber che sono interessati a seguire lo stato dell'oggetto.
      * Ricordiamo che è compito del Publisher notificare i Subscriber, e per farlo dovrà pur sapere chi questi siano
      */
-    private List<Observer> subscribers = new ArrayList<>();
+    private Set<Observer> subscribers = new HashSet<>();
 
+    /**
+     * Getter, setter e constructor, pro forma
+     */
     public String getChannelName() { return channelName; }
     public void setChannelName(String channelName) { this.channelName = channelName; }
 
@@ -51,7 +54,8 @@ public class FamousYoutuber {
     }
 
     /**
-     *
+     * Questo è il metodo che notifica i Subscriber del cambio di stato del Publisher,
+     * precotto per essere chiamato ogni volta che l'oggetto cambia stato
      */
     public void notifySubscribers() {
         for(Observer observer : subscribers) {
@@ -61,7 +65,7 @@ public class FamousYoutuber {
 
     public void postNewVideo(String videoTitle) {
         System.out.println(channelName + " posted a new video titled '" + videoTitle + "'!");
-        lastVideoUploaded = videoTitle;
-        notifySubscribers();
+        lastVideoUploaded = videoTitle;     /* L'oggetto cambia stato */
+        notifySubscribers();                /* I Subscriber vengono notificati */
     }
 }
