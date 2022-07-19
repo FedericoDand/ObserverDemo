@@ -5,4 +5,5 @@ package it.unikey;
  */
 public interface Observer {
     void update(String context);
+
 }
