@@ -1,7 +1,12 @@
 package it.unikey;
 
 /**
- * Concrete Observer o Subscriber
+ * ####################################
+ * #  Concrete Observer o Subscriber  #
+ * ####################################
+ *
+ * Il "Concrete Observer" è l'oggetto che implementa l'interfaccia Observer, e viene notificato dal Publisher quando
+ * quest'ultimo cambia stato. Essendo un oggetto interessato allo stato di un altro, viene chiamato anche "Subscriber"
  */
 public class YoutubeUser implements Observer{
 
@@ -23,16 +28,16 @@ public class YoutubeUser implements Observer{
         id = idCounter++;
     }
 
+    @Override
+    public void update(String context) {
+        lastNotificationRecieved = context;
+    }
+
     public void subscribe(FamousYoutuber youtuber) {
         youtuber.addSubscriber(this);
     }
 
     public void unsubscribe(FamousYoutuber youtuber) {
         youtuber.removeSubscriber(this);
-    }
-
-    @Override
-    public void update(String context) {
-        lastNotificationRecieved = context;
     }
 }

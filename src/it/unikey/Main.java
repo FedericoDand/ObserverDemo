@@ -18,8 +18,8 @@ public class Main {
 
         eddie.subscribe(pewDiePie);
 
-        pewDiePie.postNewVideo("Look how flippin' good is Elden Ring!!!1!");
-        ciccioGamer.postNewVideo("Ho Venduto L'anima sulle Waifu di Genshin Impact");
+        pewDiePie.postNewVideo("Look How Flippin' Good Elden Ring Is!!!1!");
+        ciccioGamer.postNewVideo("Perché Ho Venduto L'Anima sulle Waifu di Genshin Impact");
 
         System.out.println();
 
@@ -36,5 +36,7 @@ public class Main {
                 + strawberryJellyAngel.getLastNotificationRecieved());
         System.out.println("Last video notified to " + eddie.getUsername() + ": "
                 + eddie.getLastNotificationRecieved());
+
+        xxDarkRibellino99xx.unsubscribe(pewDiePie);
     }
 }
